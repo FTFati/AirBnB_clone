@@ -1,31 +1,35 @@
 #!/usr/bin/python3
 """
-Test suits for the base model
+Unit test for BaseModel
 """
+import json
+import unittest
 from models.base_model import BaseModel
-
-my_model = BaseModel()
-my_model.name = "My First Model"
-my_model.my_number = 89
-print(my_model)
-my_model.save()
-print(my_model)
-my_model_json = my_model.to_dict()
-print(my_model_json)
-print("JSON of my_model:")
-for key in my_model_json.keys():
-    print("\t{}: ({}) - {}".format(key, type(my_model_json[key]), my_model_json[key]))
+from datetime import datetime
+import models
+from io import StringIO
+import sys
 
 class TestBaseModel(unittest.TestCase):
     """
-    Unit test for the base model
+    Tests attributes of the base model
     """
 
-    def setUp(self):
+    def test_basic(self):
         """First test"""
-        pass
+        my_model = BaseModel()
+        my_model.name = "My First Model"
+        my_model.my_number = 89
+        print(my_model)
+        my_model.save()
+        print(my_model)
+        my_model_json = my_model.to_dict()
+        print(my_model_json)
+        print("JSON of my_model:")
+        for key in my_model_json.keys():
+            print("\t{}: ({}) - {}".format(key, type(my_model_json[key]), my_model_json[key]))
 
-    def test_init(self):
+    def set_Up(self):
         """Second test"""
         pass
 
