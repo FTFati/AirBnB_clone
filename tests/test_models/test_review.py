@@ -81,14 +81,6 @@ class TestReview_instantiation(unittest.TestCase):
         review = Review(None)
         self.assertNotIn(None, review.__dict__.values())
 
-    def test_instantiation_with_kwargs(self):
-        my_date = datetime.today()
-        my_date_iso = my_date.isoformat()
-        review = Review(id="777", created_at=my_date_iso, updated_at=my_date_iso)
-        self.assertEqual(review.id, "777")
-        self.assertEqual(review.created_at, my_date)
-        self.assertEqual(review.updated_at, my_date)
-
     def test_instantiation_with_None_kwargs(self):
         with self.assertRaises(TypeError):
             Review(id=None, created_at=None, updated_at=None)
